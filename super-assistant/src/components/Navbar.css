@@ -1,0 +1,130 @@
+.navbar-top{
+    height: 50px;
+    display:flex;
+    justify-content: space-around;  
+    align-items: center;
+    border-bottom: 2px solid rgb(205, 198, 198);
+}
+
+.logo{
+    height: 40px;
+    width:40px;
+
+}
+
+.boost{
+    height: 17px;
+    width : 30px;
+}
+
+.rocket{
+    display: flex;
+    align-items:center ;
+}
+
+.upgrade{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+input{
+height: 100%;
+width : 100%; 
+outline:none;  
+border: none;
+padding: 0 10px;
+font-weight: 500;
+    font-size: 20px;
+}
+
+::placeholder {
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+.right-corner{
+    flex:1;
+    display: flex;
+    cursor: pointer;
+    justify-content: end;
+    column-gap: 30px;
+    align-items: center;
+}
+
+.central-div{
+    height: 40px;
+    display: flex;
+    flex: 1;
+    border : 2px solid rgb(220,220,220);
+    
+    border-radius: 5px;
+    background-color: rgb(220,220,220);
+}
+
+.left-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+
+.left-button{
+    display: flex;
+    flex:1;
+    justify-content:center;
+    margin-right: 20px;
+
+}
+.logo-title{
+    display:flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.title{
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: -3px;
+}
+
+.l-button{
+border: 1px solid white;
+border-radius: 4px;
+background-color: #82eaaa;
+padding:4px 20px;
+font-weight:600;
+cursor: pointer;
+}
+.r-button{
+    border: 1px solid white;
+    border-radius: 4px;
+    background-color: #82eaaa;
+    padding:4px 20px;
+    font-weight:700;
+    cursor: pointer;
+    height: 40px;
+    font-size: 17px;
+    }
+
+
+.icon{
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+   
+}
+
+.icons{
+    display: flex;
+    justify-content: end;
+    column-gap: 25px;
+}
+.avatar{
+    display: flex;
+    height: 39px;
+    width: 38px;
+    margin-right:10px;
+ 
+    justify-content: center;
+}

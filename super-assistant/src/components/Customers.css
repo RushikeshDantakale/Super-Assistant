@@ -1,0 +1,52 @@
+.content{
+    flex-wrap: wrap;
+    height: calc(100vh-50px);
+    width: 100%;
+    background-color: #F6F6F7;
+    overflow-y: auto;
+    overflow-y: scroll;
+    padding: 40px;
+}
+
+.header{
+    display: flex;
+
+}
+
+.left-div{
+    flex: 1.5;
+}
+
+.right-div{
+    flex: 0.8;
+}
+
+
+.main-content{
+    width: 100%;
+    margin-top: 20px;
+    background-color: white;
+    padding: 15px;
+}
+
+.button-icon{
+ 
+    height: 40px;
+    border : 1px solid rgb(202, 197, 197);
+}
+
+.main-top{
+    display:flex;
+    column-gap:20px ;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgb(233, 233, 233);
+}
+
+.icon-btn{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    font-weight: 500;
+   
+    
+}

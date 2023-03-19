@@ -1,0 +1,48 @@
+.box-outer{
+    height:70px;
+    width: 100%;
+    padding : 5px 10px;
+    display: flex;
+    border-bottom: 2px solid rgb(233, 233, 233); 
+    align-items: center;
+}
+
+.box-outer:hover{
+    background-color: rgba(0,0,0,0.1);
+    cursor: pointer;
+    color:green;
+}
+
+.box-left{
+    flex: 1;
+}
+
+.box-right{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.title{
+    font-weight: 700;
+}
+
+.email{
+    font-size: 15;
+    color: gray;
+    font-weight: 400;
+}
+
+.value-box{
+    display:flex;
+    justify-content:center;
+    color: gray;
+    font-weight: 500;
+}
+
+.title-box{
+    color: gray;
+    font-weight: 500;
+}

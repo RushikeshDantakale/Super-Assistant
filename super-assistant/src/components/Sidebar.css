@@ -1,0 +1,77 @@
+.sidebar{
+    height: 680px;
+    width:250px;
+   overflow-y: auto;
+    overflow-y: scroll;
+    padding-top: 15px;
+    /* border-right: 2px solid rgb(205, 198, 198); */
+
+}
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #c7c2c2;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #958f8f;
+  }
+
+  .icon-title{
+    display: flex;
+    justify-content:left;
+    align-items: center;
+    column-gap: 2px;
+  }
+
+  .icon-title:hover{
+   border-left:3px solid green;
+   opacity: 2;
+   cursor: pointer;
+   background-color: rgba(0,0,0,0.1)
+  }
+
+  .icon{
+    height: 38px;
+    width: 38px;
+  }
+
+  .icon:hover{
+    color: green;
+  }
+
+  .title{
+    font-size: 17px;
+
+  }
+
+  .title:hover{
+    color: green;
+  }
+
+
+  .heading{
+    font-size: 13px;
+    font-weight: 500;
+    color:#958f8f;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 5px
+
+
+  }
+
+
+  .Custom-Polaris-Icon__Svg:hover{
+fill: white;
+  }
