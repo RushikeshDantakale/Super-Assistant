@@ -2,7 +2,8 @@ const express = require('express');
 const router = express();
 const request = require('request');
 const axios = require('axios');
-
+require('@shopify/shopify-api/adapters/node');
+const {shopifyApi, LATEST_API_VERSION} = require( '@shopify/shopify-api');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
@@ -13,39 +14,64 @@ router.use(bodyParser.urlencoded({ extended: true }));
 // const User = require("../model/shopifyUserSchema"); 
 // const { json } = require('body-parser');
 
-const authToken =  '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';
-const key = '69bc0889363283b61308cd6e9f15ffd0';
+const authToken =  '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';
+const key = '46b7128caec7f37604a0ca9a6d95af03';
 
-let customer = {
-    'method': 'GET',
-    'url':`https://${key}:${authToken}@store-ecom-super-assistant.myshopify.com/admin/api/2023-01/customers.json`,
-    'header':{
-        'Content-Type' : 'application/json'
-    }    
-}
+
+  
 
 
 
 
 
 
-router.get('/customer', (req,res)=>{
-    
-    request(customer, function(error,response){
+
+router.get('/customer',async (req,res)=>{
+
+    let customer = {
+        'method': 'GET',
+        'url':`https://${key}:${authToken}@superassistant9080.myshopify.com/admin/api/2023-01/customers.json`,
+        'header':{
+            'Content-Type' : 'application/json'
+        }    
+    }
+
+    request(customer, (error,response)=>{
         if(error) throw new Error(error);
-// console.log(response.body);
-    //    const users  = JSON.parse(response.body);
 
-    //    console.log(users.customers);
+       const users  = JSON.parse(response.body);
 
-    //    users.customers.map( (uSer)=>{
-    //     const {first_name, last_name , email} = uSer;
-    //     console.log();
-    //     const user = new User({f_name:first_name, l_name:last_name , email});
-              
-    //    user.save();
-    //    })
-res.send(response.body);
+       
+
+res.send(users);
+    })
+
+    
+})
+
+router.post('/customerWithId/:id',async (req,res)=>{
+
+   const id =Number(req.params.id);
+
+    console.log(id, 56);
+
+    let customer = {
+        'method': 'GET',
+        'url':`https://${key}:${authToken}@superassistant9080.myshopify.com/admin/api/2023-01/customers/${id}.json`,
+        'headers':{
+            'Content-Type' : 'application/json'
+        },
+          
+    }
+
+    request(customer, (error,response)=>{
+        if(error) throw new Error(error);
+
+       const users  = JSON.parse(response.body);
+
+       
+
+res.send(users);
     })
 
     
@@ -53,45 +79,32 @@ res.send(response.body);
 
 
 router.put('/UpdateCustomer',(req,res)=>{
-    console.log(req.body);
-    const {id, title , value} = req.body;
-//    const id = 6829080510741;
-//    const title = "f_name";
-//    const value = "Rushikesh";
 
-    // console.log(id);
-    // let updateCustomer = {
+  
+    const {id, title , value} = req.body.data;
+
+    console.log(id,title,value);
+    //req object which is send to sgopify api with othcode and api key
+    let updateCustomer = {
         
-    //     'method': 'PUT',
-    //     'uri':`https://${key}:${authToken}@store-ecom-super-assistant.myshopify.com/admin/api/2023-01/customers/${id}.json`,
-    //     'header':{
-    //         'Content-Type' : 'application/json'
-    //     } ,
-    //     'body':JSON.stringify({'customer':{
-    //         'id':id,
-    //        [`${title}`]: value,
-    //     }})   
-    // }
-    // console.log(updateCustomer.body,updateCustomer.url ,74);
-    // request(updateCustomer,function(err,response){
-    //     if(err) throw new Error(err);
-    //     res.send(response.body);
-    // })
+        'method': 'PUT',
+        'url':`https://${key}:${authToken}@superassistant9080.myshopify.com/admin/api/2023-01/customers/${id}.json`,
+        'headers':{
+            'Content-Type' : 'application/json'
+        } ,
+        body:JSON.stringify({'customer':{
+            'id':id,
+           [title]: value,
+        }})   
+    }
+   //updating the customer name
 
-  const  response = axios.put(`https://${key}:${authToken}@store-ecom-super-assistant.myshopify.com/admin/api/2023-01/customers/${id}.json`,
+    request(updateCustomer, (err,response)=> {
+        if(err) throw new Error(err);
+        res.send(response.body);
+    })
 
-    {
-        'header':{
-            'X-Shopify-Token':'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'
-        },
-        
-        'body':JSON.stringify({
-               title: value,
-        })
-    });
 
-            res.send(response.data);
-            console.log(response.data);
             
 })
 

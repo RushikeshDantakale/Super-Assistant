@@ -9,6 +9,6 @@ const app = express();
 
 app.use(require('./router/auth'));
 
-app.listen(5000,()=>{
-    console.log(`server is running on port 5000`);
+app.listen(80,()=>{
+    console.log(`server is running on port 80`);
 })

@@ -5,6 +5,7 @@ import Home from '../components/Home';
 import Customers from '../components/Customers'
 import '../App.css'
 import {useSelector} from 'react-redux';
+import CustomerDetails from '../components/CustomerDetails';
 
 
 const HomePage = () => {
@@ -23,6 +24,7 @@ const HomePage = () => {
       <div className='main-content'> 
        {(btnClick==='home'&& (<Home/>))} 
        {(btnClick==='customers' && (<Customers/>))}
+       {(btnClick==='customerDetails')&& (<CustomerDetails/>)}
        </div>
       
       </div>

@@ -5,10 +5,15 @@ import {
     ChevronLeftMinor,ChevronRightMinor,FilterMajor
   } from '@shopify/polaris-icons';
 
+  import { useDispatch , useSelector } from 'react-redux';
+  
+
   import {Select} from '@shopify/polaris';
+  import { changeCustomer } from '../store/cartSlice';
 
 import axios from 'axios';
 import UserData from './UserData';
+import {changeTab} from '../store/cartSlice';
 
 
 
@@ -16,8 +21,15 @@ import UserData from './UserData';
 const Customers = () => {
 
     
+    const dispatch = useDispatch();
+
+    const custId = useSelector((state) => state.rootReducer.customerClick );
+
+    console.log(custId);
 
     const [userData , setUserData] =useState([]);
+
+    const [click  , setClick] = useState(false)
 
     const [selected, setSelected] = useState('Yesterday');
 
@@ -33,14 +45,21 @@ const Customers = () => {
     ];
   
      
+const handleClick = (id)=> {
+dispatch(changeCustomer(id));
+dispatch(changeTab('customerDetails'));
+
+}
+
+
 useEffect( ()=>{
 
     const fetchData =async ()=>{
 
 
-      const response = await axios('http://localhost:5000/customer');
+      const response = await axios('http://localhost:80/customer');
 
-      console.log(response);
+      
 
      try{
      
@@ -61,10 +80,11 @@ useEffect( ()=>{
 
 
   
-console.log(userData);
+
 
 
     return (
+
         <div className='content'>
 
         <div className='header'>     
@@ -92,10 +112,10 @@ console.log(userData);
 
 
 
-{(userData===undefined ? null : (userData.map((user,index)=>{
+{((userData===undefined ? null : (userData.map((user,index)=>{
     const {id ,email, first_name , last_name} = user;
-    return (<UserData id={id} first_name={first_name} last_name={last_name} email={email}/>)
-})))}
+    return (<div onClick={()=> handleClick(id)}>  <UserData id={id} first_name={first_name} last_name={last_name} email={email} /> </div>)
+}))))}
 
 
          </div>
