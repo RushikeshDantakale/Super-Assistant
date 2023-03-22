@@ -1,11 +1,15 @@
 const mongoose = require('mongoose');
 
 const shopifyUserSchema = new mongoose.Schema({
-    f_name : {
+    id : {
+        type : Number,
+        required : true
+        },
+    first_name : {
     type : String,
     required : true
     },
-    l_name : {
+    last_name : {
         type : String,
         required : true
     },
@@ -15,8 +19,8 @@ const shopifyUserSchema = new mongoose.Schema({
     }
 })
 
-const shopifyuser = mongoose.model("SHOPIFYUSER",shopifyUserSchema);
+const ShopifyUser = mongoose.model("SHOPIFYUSER",shopifyUserSchema);
 
 
 
-module.exports = shopifyuser;
+module.exports = ShopifyUser;

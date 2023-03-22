@@ -3,13 +3,10 @@ import './UserData.css';
 
 const UserData = ({id , email, first_name , last_name}) => {
 
-const handleClick = () =>{
-    console.log('dfsfsd');
-}
 
 
     return (
-        <div className='box-outer' onClick={handleClick}>
+        <div className='box-outer' key={id} >
             <div className='box-left'>
 <div className='title'>
     {first_name}  {last_name}

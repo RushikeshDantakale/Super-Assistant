@@ -55,27 +55,16 @@ dispatch(changeTab('customerDetails'));
 useEffect( ()=>{
 
     const fetchData =async ()=>{
-
-
-      const response = await axios('http://localhost:80/customer');
-
-      
-
-     try{
-     
-      
-      
-      setUserData(response.data.customers);
+    const response =await axios('http://localhost:80/customer');
+    console.log(typeof(response), response);
+     try{      
+      setUserData(response.data);
      
      }catch(err){
       console.log(errr);
      }
-     
-   
     }
-
-    fetchData();
-   
+    fetchData();   
 },[])
 
 
